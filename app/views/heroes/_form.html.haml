@@ -23,5 +23,10 @@
     .field
       = f.label :strength
       = f.number_field :strength, {:min => "0", :max => "20", :step => "1", "data-ratio-target" => "strength", "data-action" => "ratio#updateStrengthPoints"}
+
+    .field
+      = f.label :weapons
+      = f.select :weapons, @weapons.all.collect {|w| [w.name, w.id]},{ :prompt => "Please select"}, { :multiple => true}
+      
     .actions
       = f.submit 'Save'

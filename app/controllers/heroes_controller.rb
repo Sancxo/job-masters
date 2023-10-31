@@ -13,11 +13,12 @@ class HeroesController < ApplicationController
   # GET /heroes/new
   def new
     @hero = Hero.new
-    @total_points = 20
+    @weapons = Weapon.all
   end
 
   # GET /heroes/1/edit
   def edit
+     @weapons = Weapon.all
   end
 
   # POST /heroes or /heroes.json
