@@ -1,0 +1,27 @@
+#form-controller{"data-controller" => "ratio"}
+  = form_for @hero do |f|
+    - if @hero.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@hero.errors.count, "error")} prohibited this hero from being saved:"
+        %ul
+          - @hero.errors.full_messages.each do |message|
+            %li= message
+
+    .field
+      = f.label :name
+      = f.text_field :name
+
+    .field
+      = f.label :avatar
+      = f.file_field :avatar
+
+    %p#total-points{"data-ratio-target" => "total"}
+
+    .field
+      = f.label :health
+      = f.number_field :health, {:min => "0", :max => "20", :step => "1", "data-ratio-target" => "health", "data-action" => "ratio#updateHealthPoints"}
+    .field
+      = f.label :strength
+      = f.number_field :strength, {:min => "0", :max => "20", :step => "1", "data-ratio-target" => "strength", "data-action" => "ratio#updateStrengthPoints"}
+    .actions
+      = f.submit 'Save'

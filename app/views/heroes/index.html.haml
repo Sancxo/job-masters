@@ -1,0 +1,25 @@
+%h1 Listing heroes
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Health
+      %th Strength
+      %th
+      %th
+      %th
+
+  %tbody
+    - @heroes.each do |hero|
+      %tr
+        %td= hero.name
+        %td= hero.health
+        %td= hero.strength
+        %td= link_to 'Show', hero
+        %td= link_to 'Edit', edit_hero_path(hero)
+        %td= link_to 'Destroy', hero, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Hero', new_hero_path
