@@ -26,7 +26,7 @@
 
     .field
       = f.label :weapons
-      = f.select :weapons, @weapons.all.collect {|w| [w.name, w.id]},{ :prompt => "Please select"}, { :multiple => true}
+      = f.select :weapons, @weapons.all.collect {|w| ["#{w.name} - bonus: #{w.bonus}", w.id]},{ :prompt => "Please select"}, { :multiple => true}
       
     .actions
       = f.submit 'Save'
