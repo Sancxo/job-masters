@@ -8,6 +8,8 @@ class HealthStrengthRatioValidator < ActiveModel::Validator
 end
 
 class Hero < ApplicationRecord
+  has_and_belongs_to_many :weapons
+
   validates :name, presence: true, uniqueness: true, length: {in: 2..50, wrong_length: "Your name should contain between 2 and 50 characters long."}
 
   validates :health, presence: true, numericality: { only_integer: true }

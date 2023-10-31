@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @weapon.name
+%p
+  %b Type:
+  = @weapon.type
+%p
+  %b Bonus:
+  = @weapon.bonus
+%p
+  %b Illustration:
+  = @weapon.illustration
+
+= link_to 'Edit', edit_weapon_path(@weapon)
+\|
+= link_to 'Back', weapons_path
