@@ -15,6 +15,8 @@ class Hero < ApplicationRecord
 
   validates_with HealthStrengthRatioValidator
 
-  has_one_attached :avatar
+  has_one_attached :avatar do |a|
+    a.variant :profile, resize_to_limit: [300, 300]
+  end
   validates :avatar, content_type: {in: ['image/png', 'image/jpeg', 'image/gif', 'image/webp', 'image/avif'], message: "Not a supported image format. Should be either .png, .jpeg, .gif, .webp or .avif"}
 end

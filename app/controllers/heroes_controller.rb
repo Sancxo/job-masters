@@ -66,6 +66,6 @@ class HeroesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hero_params
-      params.require(:hero).permit(:name, :health, :strength)
+      params.require(:hero).permit(:name, :health, :strength, :avatar)
     end
 end

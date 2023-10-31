@@ -1,5 +1,7 @@
 %p#notice= notice
 
+= image_tag @hero.avatar.variant(:profile) if @hero.avatar.attached?
+
 %p
   %b Name:
   = @hero.name
